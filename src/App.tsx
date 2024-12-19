@@ -2,6 +2,8 @@ import React from 'react'
 import Hello from './components/Hello'
 import MyButton from './components/MyButton'
 import User from './components/User'
+import Counter from './components/Counter'
+import TodoList from './components/TodoList'
 
 interface User{
   id : string,
@@ -24,7 +26,10 @@ const App = () => {
   return (
     <div>
 
-      <User age = {21}id='01'name='Yoga'/>
+      <TodoList/>
+      {/* <Counter/> */}
+
+      {/* <User age = {21}id='01'name='Yoga'/> */}
 
       {/* <MyButton customonClick={handleBtnClick}/> */}
         {/* // if false : true
