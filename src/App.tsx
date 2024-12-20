@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Hello from './components/Hello'
 import MyButton from './components/MyButton'
-import User from './components/User'
+// import User from './components/User'
 import Counter from './components/Counter'
 import TodoList from './components/TodoList'
+import DataFetcher from './components/DataFetcher'
+import MyInput from './components/MyInput'
 
 interface User{
   id : string,
@@ -18,15 +20,22 @@ const App = () => {
     console.log("Button Clicked from the parent btn handler",e);
     
   }
- 
-  let isAdmin = true
+  
+  const [isAdmin,setAdmin] = useState(false)
 
-  let users : User[] = [{id:"1",name:"Yoga"},{id:"2",name:"Eka"},{id:"3",name:"Pratama"}]
+  // let isAdmin = true
+
+  // let users : User[] = [{id:"1",name:"Yoga"},{id:"2",name:"Eka"},{id:"3",name:"Pratama"}]
 
   return (
     <div>
 
-      <TodoList/>
+      <MyInput/>
+      <RenderCounter/>
+
+      {/* <DataFetcher/> */}
+
+      {/* <TodoList/> */}
       {/* <Counter/> */}
 
       {/* <User age = {21}id='01'name='Yoga'/> */}
@@ -42,6 +51,8 @@ const App = () => {
         </ul> */}
           
       {/* <Hello/> */}
+
+      <button onClick={() => {setAdmin(!isAdmin)}}>TOOGLE ADMIN</button>
         
     </div>
   )
@@ -58,3 +69,19 @@ export default App
 //     </div>
 //   )
 // }
+
+
+const RenderCounter : React.FC = () => {
+
+  const countRef = useRef<number>(0)
+
+  countRef.current ++
+
+  return(
+    <>
+    APP RENDERED {countRef.current} times
+    
+    </>
+  )
+
+}
